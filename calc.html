@@ -1,0 +1,334 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="description" content="">
+    <meta name="author" content="reitoo studios">
+    <title>贴现计算器</title>
+
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Admin Theme -->
+    <link rel="stylesheet" media="screen" href="bootstrap/css/bootstrap-admin-theme.css">
+    <link rel="stylesheet" media="screen" href="bootstrap/css/bootstrap-admin-theme-change-size.css">
+
+    <!-- Vendors -->
+    <link rel="stylesheet" media="screen" href="bootstrap/vendors/bootstrap-datepicker/css/datepicker.css">
+    <link rel="stylesheet" media="screen" href="bootstrap/css/datepicker.fixes.css">
+    <link rel="stylesheet" media="screen" href="bootstrap/vendors/uniform/themes/default/css/uniform.default.min.css">
+    <link rel="stylesheet" media="screen" href="bootstrap/css/uniform.default.fixes.css">
+    <link rel="stylesheet" media="screen" href="bootstrap/vendors/chosen.min.css">
+    <link rel="stylesheet" media="screen" href="bootstrap/vendors/selectize/dist/css/selectize.bootstrap3.css">
+    <link rel="stylesheet" media="screen" href="bootstrap/vendors/bootstrap-wysihtml5-rails-b3/vendor/assets/stylesheets/bootstrap-wysihtml5/core-b3.css">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+       <script type="text/javascript" src="js/html5shiv.js"></script>
+       <script type="text/javascript" src="js/respond.min.js"></script>
+    <![endif]-->
+
+    <style type="text/css">
+        body {
+            /*background-color:#DDDDDD;	*/
+        }
+
+        .bootstrap-admin-content-title h1 {
+            text-align: center;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="alert_box" class="alert alert-success" style="display:none;">
+        <p id="alert_text"><strong>成功！</strong></p>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <center><img class="img-thumbnail" style="border: 0; -webkit-box-shadow: 0 0 0; box-shadow: 0 0 0;padding-top:15px;" src="images/logo.png" /></center>
+                <h1 style="text-align:center;">贴现计算器</h1>
+            </div>
+        </div>
+
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td class="col-lg-2" style="vertical-align:middle;"><label for="bill_money">票面金额(万元)</label></td>
+                    <td class="col-lg-10"><input class="form-control" id="bill_money" type="text" placeholder="票面金额(万元)"></td>
+                </tr>
+                <tr>
+                    <td class="col-lg-2" style="vertical-align:middle;"><label for="month_rate">月利率(‰)</label></td>
+                    <td class="col-lg-10"><input class="form-control" id="month_rate" type="text" placeholder="月利率‰"></td>
+                </tr>
+                <tr>
+                    <td class="col-lg-2" style="vertical-align:middle;"><label for="year_rate">年利率(%)</label></td>
+                    <td class="col-lg-10"><input class="form-control" id="year_rate" type="text" placeholder="年利率%"></td>
+                </tr>
+                <tr>
+                    <td class="col-lg-2" style="vertical-align:middle;"><label for="discount_date">贴现日期</label></td>
+                    <td class="col-lg-10"><input type="text" class="form-control datepicker" style="padding-left:12px;" id="discount_date" placeholder="贴现日期 yyyy-mm-dd"></td>
+                </tr>
+                <tr>
+                    <td class="col-lg-2" style="vertical-align:middle;"><label for="due_date">到期日期</label></td>
+                    <td class="col-lg-10"><input type="text" class="form-control datepicker" style="padding-left:12px;" id="due_date" placeholder="到期日期 yyyy-mm-dd"></td>
+                </tr>
+                <tr>
+                    <td class="col-lg-2" style="vertical-align:middle;"><label for="adjust_days">调整天数</label></td>
+                    <td class="col-lg-10"><input class="form-control" id="adjust_days" type="text" placeholder="调整天数"></td>
+                </tr>
+                <tr>
+                    <td class="col-lg-2" style="vertical-align:middle;">&nbsp;</td>
+                    <td class="col-lg-10">
+
+                        <button type="button" class="btn btn-primary" style="padding-left:20px;padding-right:20px;margin-right:20px;" onclick="calcRate();">计 算</button>
+                        <button type="reset" class="btn btn-default" style="">清 空</button>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-lg-2" style="vertical-align:middle;"><label for="days_count">计息天数：</label></td>
+                    <td class="col-lg-10"><span id="days_count" class="form-control"> - 天</span></td>
+                </tr>
+                <tr>
+                    <td class="col-lg-2" style="vertical-align:middle;"><label for="rate">贴现利息：</label></td>
+                    <td class="col-lg-10"><span id="rate" class="form-control"> - 元</span></td>
+                </tr>
+                <tr>
+                    <td class="col-lg-2" style="vertical-align:middle;"><label for="rate_money">贴现金额：</label></td>
+                    <td class="col-lg-10">
+                        <span id="rate_money" class="form-control"> - 元</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="bootstrap-admin-back-to-parent panel panel-default" style="padding:10px;background-color:#EFEFEF;">
+            <p class="text" style="text-align:left;" id="mark_text"></p>
+        </div>
+
+
+
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="bootstrap/js/twitter-bootstrap-hover-dropdown.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap-admin-theme-change-size.js"></script>
+    <script type="text/javascript" src="bootstrap/vendors/uniform/jquery.uniform.min.js"></script>
+    <script type="text/javascript" src="bootstrap/vendors/chosen.jquery.min.js"></script>
+    <script type="text/javascript" src="bootstrap/vendors/selectize/dist/js/standalone/selectize.min.js"></script>
+    <script type="text/javascript" src="bootstrap/vendors/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <script type="text/javascript" src="bootstrap/vendors/bootstrap-wysihtml5-rails-b3/vendor/assets/javascripts/bootstrap-wysihtml5/wysihtml5.js"></script>
+    <script type="text/javascript" src="bootstrap/vendors/bootstrap-wysihtml5-rails-b3/vendor/assets/javascripts/bootstrap-wysihtml5/core-b3.js"></script>
+    <script type="text/javascript" src="bootstrap/vendors/twitter-bootstrap-wizard/jquery.bootstrap.wizard-for.bootstrap3.js"></script>
+    <script type="text/javascript" src="bootstrap/vendors/boostrap3-typeahead/bootstrap3-typeahead.min.js"></script>
+
+    <script type="text/javascript">
+
+        function calcRate() {
+
+            var billMoney = $("#bill_money").val();
+
+            var discountDateString = $("#discount_date").val();
+            var dueDateString = $("#due_date").val();
+
+            var monthRate = $("#month_rate").val();
+            var yearRate = $("#year_rate").val();
+
+            var adjustDays = $("#adjust_days").val();
+
+            if (adjustDays.length <= 0) {
+                adjustDays = 0;
+            } else {
+                adjustDays = parseInt(adjustDays);
+            }
+
+            if (billMoney.length <= 0) {
+                alertTip("<strong>提示！</strong>票面金额不能为空");
+                return;
+            }
+
+            if (monthRate.length <= 0 && yearRate.length <= 0) {
+                alertTip("<strong>提示！</strong>月利率或年利率不能为空");
+                return;
+            }
+
+            if (monthRate.length > 0 && yearRate.length > 0) {
+                alertTip("<strong>提示！</strong>将优先月利率计算");
+            }
+
+            if (discountDateString.length <= 0 || dueDateString.length <= 0) {
+                alertTip("<strong>提示！</strong>贴现日期和到期日期不能为空");
+                return;
+            }
+
+            var days = checkDiffDays(discountDateString, dueDateString);
+
+            if (days === undefined || days == NaN) {
+                alertTip("<strong>提示！</strong>日期错误");
+                return;
+            }
+
+            var totalDays = days + adjustDays;
+
+            $("#days_count").html(totalDays + " 天");
+
+            var sum = parseInt(billMoney) * 10000;
+            var rate = 0;
+            var rateMoney = 0;
+            if (monthRate.length > 0) {
+                rate = sum * totalDays * monthRate / 30 / 1000;
+            }
+
+            if (yearRate.length > 0 && monthRate.length <= 0) {
+                rate = sum * totalDays * yearRate / 30 / 100 / 12;
+            }
+
+
+            $("#rate").html(rate.toFixed(2) + " 元");
+
+            rateMoney = sum - rate;
+            $("#rate_money").html(rateMoney.toFixed(2) + " 元");
+            alertTip("计算完成");
+        }
+
+        function alertTip(text) {
+            $("#alert_box").css("display", "block");
+            $("#alert_box").removeClass("alert alert-success");
+            $("#alert_box").addClass("alert alert-warning");
+            $("#alert_text").html(text);
+        }
+
+        //计算两个日期的差值,并弹出窗口，提醒错误
+        function checkDiffDays(startDate, endDate) {
+            var diffDays = getDiffDays(startDate, endDate);
+            //if (diffDays > 90) {
+            //    alert( "days="+diffDays +",间隔时间无效，间隔时间不能大于90天！");
+            //   return false;
+            //}
+            return diffDays;
+        }
+
+
+        //得到两个日期的间隔时间的天数
+        function getDiffDays(date1, date2) {
+            var regexp = /^(\d{1,4})[-|\.]{1}(\d{1,2})[-|\.]{1}(\d{1,2})$/;
+            var monthDays = [0, 3, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1];
+            regexp.test(date1);
+            var date1Year = RegExp.$1;
+            var date1Month = RegExp.$2;
+            var date1Day = RegExp.$3;
+
+            regexp.test(date2);
+            var date2Year = RegExp.$1;
+            var date2Month = RegExp.$2;
+            var date2Day = RegExp.$3;
+
+            if (validatePeriod(date1Year, date1Month, date1Day, date2Year, date2Month, date2Day)) {
+                var firstDate = new Date(date1Year, date1Month, date1Day);
+                var secondDate = new Date(date2Year, date2Month, date2Day);
+
+                var result = Math.floor((secondDate.getTime() - firstDate.getTime()) / (1000 * 3600 * 24));
+                for (j = date1Year; j < date2Year; j++) {
+                    if (isLeapYear(j)) {
+                        monthDays[1] = 2;
+                    } else {
+                        monthDays[1] = 3;
+                    }
+                    for (i = date1Month - 1 ; i < date2Month; i++) {
+                        result = result - monthDays[i]
+                    }
+                }
+                return result;
+            } else {
+                return;
+            }
+            if (validatePeriod(date1Year, date1Month, date1Day, date2Year, date2Month, date2Day)) {
+                firstDate = new Date(date1Year, date1Month, date1Day);
+                secondDate = new Date(date2Year, date2Month, date2Day);
+
+                result = Math.floor((secondDate.getTime() - firstDate.getTime()) / (1000 * 3600 * 24));
+                for (j = date1Year; j <= date2Year; j++) {
+                    if (isLeapYear(j)) {
+                        monthDays[1] = 2;
+                    } else {
+                        monthDays[1] = 3;
+                    }
+                    for (i = date1Month - 1; i < date2Month; i++) {
+                        result = result - monthDays[i];
+                    }
+                }
+                return result;
+            } else {
+                return 'the first field must before the second date.';
+            }
+        }
+
+        //判断年份是否是闰年
+        function isLeapYear(year) {
+            if (year % 4 == 0 && (year % 100 != 0) || (year % 400 == 0)) {
+                return true;
+            }
+            return false;
+        }
+
+        //判断前后两个日期
+        function validatePeriod(fyear, fmonth, fday, byear, bmonth, bday) {
+            if (fyear < byear) {
+                return true;
+            } else if (fyear == byear) {
+                if (fmonth < bmonth) {
+                    return true;
+                } else if (fmonth == bmonth) {
+                    if (fday <= bday) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                } else {
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        }
+
+        function GetRequest() {
+            var url = location.search; //获取url中"?"符后的字串
+            var theRequest = new Object();
+            if (url.indexOf("?") != -1) {
+                var str = url.substr(1);
+                strs = str.split("&");
+                for (var i = 0; i < strs.length; i++) {
+                    theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+                }
+            }
+            return theRequest;
+        }
+        $(document).ready(function () {
+            $('.datepicker').datepicker();
+            $("#alert_box").bind('closed.bs.alert', function () {
+                $("#alert_box").css("display", "none");
+            });
+
+            var Request = new Object();
+            Request = GetRequest();
+            var p = "";
+            p = Request['p'];
+            if (p != undefined && p.length > 0) {
+                p = "/" + p + "，微信同号。微信每天发利率。";
+            } else {
+                p = "。";
+            }
+            var text = "继续收一百万以上流通票，利率低，买断代贴皆可票送杭州萧山，0571-82886686" + p;
+            $("#mark_text").html(text);
+        });
+    </script>
+</body>
+</html>

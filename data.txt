@@ -1,0 +1,1 @@
+{"latitude":"0.0","radius":-1,"longitude":"0.0","deviceCode":"3c824b8aa487c9d","currentTime":1452491536361,"userCode":"C0010001"}

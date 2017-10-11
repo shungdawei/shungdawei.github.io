@@ -1,0 +1,226 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="reitoo studios">
+    <title>xStudio</title>
+
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <style type="text/css">
+        body {
+            padding-top: 50px;
+            /* Margin bottom by footer height */
+            margin-bottom: 60px;
+        }
+
+        .starter-template {
+            padding: 40px 15px;
+            text-align: center;
+        }
+
+        html {
+            position: relative;
+            min-height: 100%;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            /* Set the fixed height of the footer here */
+            height: 60px;
+            background-color: #f5f5f5;
+        }
+
+
+        /* Custom page CSS
+                -------------------------------------------------- */
+        /* Not required for template or sticky footer method. */
+
+        .container {
+            width: auto;
+            max-width: 980px;
+            padding: 0 15px;
+        }
+
+            .container .text-muted {
+                margin: 20px 0;
+            }
+
+        .navbar-brand {
+            font-weight: bold;
+            color: #00ff21;
+        }
+
+        .marketing .col-lg-4 {
+            margin-bottom: 20px;
+            text-align: center;
+            border:0px solid #808080;
+            height:300px;
+        }
+
+        .marketing h2 {
+            font-weight: normal;
+        }
+
+        .marketing .col-lg-4 p {
+            margin-right: 10px;
+            margin-left: 10px;
+        }
+
+        /* CUSTOMIZE THE CAROUSEL
+        -------------------------------------------------- */
+
+        /* Carousel base class */
+        .carousel {
+            height: 500px;
+            margin-bottom: 60px;
+        }
+        /* Since positioning the image, we need to help out the caption */
+        .carousel-caption {
+            z-index: 10;
+        }
+
+        /* Declare heights because of positioning of img element */
+        .carousel .item {
+            height: 500px;
+            background-color: #777;
+        }
+
+        .carousel-inner > .item > img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            min-width: 100%;
+            height: 500px;
+        }
+
+        .desc-marker p {
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">导航</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">xStudio</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">首页</a></li>
+                    <li><a href="#about">关于</a></li>
+                    <li><a href="#contact">联系</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </nav>
+
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class=""></li>
+            <li data-target="#myCarousel" data-slide-to="1" class=""></li>
+            <li data-target="#myCarousel" data-slide-to="2" class="active"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+            <div class="item" style="background-color: #0B9AD9; background-image: url(imgs/pc.png); background-position: center; background-repeat: no-repeat; ">                
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1>我们在不断努力</h1>
+                        <p>开拓创新，以质为本</p>
+                    </div>
+                </div>
+            </div>
+            <div class="item" style="background-color: #FF0000; background-image: url(imgs/cus.png); background-position: center; background-repeat:no-repeat;">                
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1>服务至上</h1>
+                        <p>坚持服务至上的原则，以客户为中心</p>
+                    </div>
+                </div>
+            </div>
+            <div class="item active" style="background-color: #6AD401; background-image: url(imgs/good.png); background-position: center; background-repeat: no-repeat;">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1>专心 专注 专业</h1>
+                        <p>追求卓越，努力做到最好</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+
+    <div class="container">
+        <div class="container marketing">
+            <!-- Three columns of text below the carousel -->
+            <div class="row">
+                <div class="col-lg-4">
+                    <img class="img-circle" src="imgs/home_web.png" alt="" style="width: 140px; height: 140px;">
+                    <h2>网页建设</h2>
+                    <p>我们通过最好的设计、最专业的建议、市场分析告知您最完善的推广策略，为您塑造优秀的品牌网站</p>
+                </div><!-- /.col-lg-4 -->
+                <div class="col-lg-4">
+                    <img class="img-circle" src="imgs/mobile_web.png" alt="" style="width: 140px; height: 140px;">
+                    <h2>移动网站</h2>
+                    <p>智能手机的普及，改变了人们手机、平板上网的方式。在企业VI（视觉设计）的基础上实现在手机等移终端小屏幕、多屏幕上的“跨屏整合”</p>
+                </div><!-- /.col-lg-4 -->
+                <div class="col-lg-4">
+                    <img class="img-circle" src="imgs/seo.png" alt="" style="width: 140px; height: 140px;">
+                    <h2>搜索引擎优化</h2>
+                    <p>有效的搜索引擎优化（SEO）工作可以增加特定关键字的曝光率以增加网站的能见度及访问量，从而提升网络营销的效果</p>
+                </div>
+                <div class="col-lg-4">
+                    <img class="img-circle" src="imgs/appdev.png" alt="" style="width: 140px; height: 140px;">
+                    <h2>程序开发</h2>
+                    <p>为您提供量身定制的程序开发，打造属于您的与众不同</p>
+                </div><!-- /.col-lg-4 -->
+                <div class="col-lg-4">
+                    <img class="img-circle" src="imgs/book.png" alt="" style="width: 140px; height: 140px;">
+                    <h2>网站备案</h2>
+                    <p>网站备案的目的就是为了防止在网上从事非法的网站经营活动，打击不良互联网信息的传播，如果网站不备案的话，很有可能被查处以后关停</p>
+                </div><!-- /.col-lg-4 -->
+                <div class="col-lg-4">
+                    <img class="img-circle" src="imgs/modify.png" alt="" style="width: 140px; height: 140px;">
+                    <h2>维护与改版</h2>
+                    <p>根据您网站的特点做出系统的诊断，并且制定出适合你们的整体网站优化方案，这才是您开展网络营销的根本之道</p>
+                </div><!-- /.col-lg-4 -->
+            </div><!-- /.row -->
+        </div>
+    </div><!-- /.container -->
+
+    <footer class="footer">
+        <div class="container">
+            <p class="text-muted">&copy; 2015 xStudio.&nbsp;&nbsp;科技以人为本，存在创造价值！</p>
+        </div>
+    </footer>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="bootstrap/js/docs.min.js"></script>
+    <script type="text/javascript">
+        // $(document).ready(function () { alert('OK'); });
+    </script>
+</body>
+</html>

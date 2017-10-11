@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>后台主框架</title>
+    <script type="text/javascript" src="scripts/jquery-1.7.1.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //alert("OK");
+            $("#content_panel").css("display", "block");
+            calcLayout();
+            //var str ="";
+            //str+="window_height:"+$(window).height();
+            //str+="document_height:"+$(document).height()+"\r\n";
+            //$("#board").text(str);
+            //alert('load');
+            $(window).resize(
+            function () {
+                calcLayout();
+                //	try
+                //	(
+                //	//$("#board").text($("#board").text()+"\n"+$("#board").height());
+                //	//$("#board").text($("#board").text()+"_"+$("#board").height());
+                //	$("[name='ishow']").height(($(window).height())-($("#board").height())-5);
+                //	$("[name='ishow']").width(($(document).width()));
+                //	//$("[name='ishow']").stop(true,false).animate(
+                //	//{
+                //		//height:$(window).height()-$("#board").height()
+                //},150)
+                //)catch(e)
+                //{
+                //	alert('ERROR');
+                //}
+            });
+            //$(window).resize();
+        });
+
+
+        //计算布局
+        function calcLayout() {
+            var disShow = $("#display_show");
+
+            var topRegion = $("#top_region");
+            var bottomRegion = $("#bottom_region");
+
+            var leftRegion = $("#left_region");
+            var rightRegion = $("#right_region");
+            var mainRegion = $("#main_region");
+
+            var windowWidth = $(window).width();
+            var windowHeight = $(window).height();
+
+            var contentHeight = windowHeight - topRegion.height() - bottomRegion.height() - 6;
+            //计算main_region的宽度
+            var contentWidth = windowWidth - leftRegion.width() - rightRegion.width() - 6;
+
+            //var text = "windowWidth=" + windowWidth + ",leftRegion=" + leftRegion.width() + ",rightRegion=" + rightRegion.width() + "\n";
+
+            //disShow.text(disShow.text()+text);
+
+            topRegion.width(windowWidth - 2);
+            bottomRegion.width(windowWidth - 2);
+
+            mainRegion.width(contentWidth);
+            mainRegion.height(contentHeight);
+            leftRegion.height(contentHeight);
+            rightRegion.height(contentHeight);
+
+        }
+    </script>
+
+    <style type="text/css">
+        body {
+            font-family: Verdana,Arial,Helvetica,sans-serif;
+            font-size: 14px;
+            padding: 0px;
+            margin: 0px;
+            overflow:hidden;
+            overflow-y:hidden;
+            overflow-x:hidden;
+        }
+
+        .container_wrap {
+            border: 1px solid #EFEFEF;
+            overflow: hidden;
+            margin: 0px;
+        }
+
+        div {
+            border: 1px solid #EFEFEF;
+        }
+
+        #top_region {
+            height: 80px;
+            width:200px;
+        }
+
+        #bottom_region {
+            height: 30px;
+            clear: both;
+            width:200px;
+        }
+
+        #left_region {
+            width: 200px;
+            height: 200px;
+            float: left;
+        }
+
+        #right_region {
+            width: 200px;
+            height: 200px;
+            float: left;
+        }
+
+        #main_region {
+            height: 200px;
+            /*width: 200px;*/
+            float: left;
+            overflow:auto;
+        }
+
+        #content_panel {
+            display:none;
+            border:0px;
+        }
+    </style>
+</head>
+<body>
+    <noscript><p style="text-align:center;margin-top:25%;">您的浏览器不支持或已禁用Javascript脚本！</p></noscript>
+    <div id="content_panel">
+        <div id="top_region" style="">
+            north
+        </div>
+        <div id="left_region" style="">east</div>
+        <iframe id="main_region" frameborder="no" border="0" src="http://www.bootcss.com/">
+
+        </iframe>
+        <div id="right_region" style="">weat</div>
+        <div id="bottom_region" style="">south</div>
+    </div>
+</body>
+</html>
