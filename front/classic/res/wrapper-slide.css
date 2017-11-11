@@ -1,0 +1,83 @@
+
+
+
+/****************************************************/
+#hot-today .body ul li {
+    border-bottom: 1px solid #efefef;
+}
+
+#hot-today .body ul li a {
+    padding: 10px 10px;
+    display: inline-block;
+}
+
+/**hot-news**/
+
+#hot-news .body ul li {
+    border-bottom: 1px solid #efefef;
+    display: table;
+    margin: 10px 0;
+    padding-bottom: 10px;
+}
+
+#hot-news .body ul li > div {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#hot-news .body ul li .txt-area {
+    padding-left: 10px;
+}
+
+#hot-news .body ul li .txt-area a {
+    line-height: 18px;
+}
+
+#hot-news .body ul li .info {
+    margin-top: 5px;
+    font-size: 12px;
+}
+
+/**news-24**/
+
+#news-24 .body ul li {
+    border-bottom: 1px solid #efefef;
+}
+
+#news-24 .body ul li a {
+    padding: 10px 10px;
+    display: inline-block;
+    line-height: 22px;
+}
+
+#news-24 .body ul li {
+    display: table;
+}
+
+#news-24 .body ul li a {
+    display: table-cell;
+}
+
+#news-24 .body ul li span {
+    display: table-cell;
+    width: 20px;
+    vertical-align: middle;
+}
+
+#news-24 .body ul li span i {
+    width: 20px;
+    height: 20px;
+    background-color: #d8d8d8;
+    color: #222222;
+    font-size: 12px;
+    line-height: 20px;
+    text-align: center;
+    display: inline-block;
+    margin-right: 5px;
+    border-radius: 15px;
+}
+
+#news-24 .body ul li span i.top3 {
+    background-color: #f44e4e;
+    color: #fefefe;
+}

@@ -1,0 +1,244 @@
+.main-content {
+    background-color: #fefefe;
+}
+
+.main-content .wrapper-main {
+    width: 830px;
+    float: left;
+    padding-bottom: 20px;
+    border-right: 1px solid #efefef;
+    padding-right: 20px;
+}
+
+.main-content .wrapper-slide {
+    width: 340px;
+    float: right;
+}
+
+.article {
+    padding: 0;
+}
+
+.article .article-header h1 {
+    padding-top: 20px;
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.article .article-excerpt p {
+    line-height: 23px;
+}
+
+.article .article-excerpt {
+    margin: 15px 0;
+    padding: 10px;
+    background-color: #efefef;
+}
+
+.article .article-body,.article .article-body p {
+    line-height: 25px;
+}
+
+.article .tag a {
+    display: inline-block;
+    margin-right: 5px;
+    padding: 8px 13px;
+    background-color: #f44e4e;
+    color: #fefefe;
+    font-size: 12px;
+}
+
+.article .avow {
+    margin: 10px 0;
+}
+
+.article .avow p.sub {
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.article .avow p {
+    font-style: normal;
+    line-height: 20px;
+    font-size: 10px;
+    color: #d8d8d8;
+}
+
+.article .grade {
+    margin: 20px 0;
+}
+
+.article .grade .sub {
+    margin-bottom: 10px;
+}
+
+.article .grade .grade-body .title {
+    margin: 10px;
+    text-align: center;
+}
+
+.article .grade .grade-body {
+    height: 30px;
+    border: 1px solid #efefef;
+}
+
+.article .comment .title {
+    font-weight: bold;
+    font-size: 16px;
+    padding: 10px 0;
+    margin: 10px 0;
+}
+
+.article .comment .title strong {
+    color: #f44e4e;
+    margin-right: 5px;
+    font-size: 18px;
+}
+
+.article .comment .say {
+    display: table;
+    width: 100%;
+}
+
+.article .comment .say .head-icon {
+    display: table-cell;
+    text-align: left;
+    vertical-align: top;
+    width: 80px;
+}
+
+.article .comment .say .say-wrapper {
+    display: table-cell;
+}
+
+.article .comment .say .say-wrapper .say-box {
+    width: 100%;
+    padding: 10px;
+    resize: none;
+}
+
+.article .comment .say .say-wrapper .publish-say {
+    float: right;
+    margin-top: 10px;
+    background-color: #f44e4e;
+    color: #fefefe;
+    border: 0;
+    padding: 8px 20px;
+}
+
+.article .comment .latest-comment {
+    margin: 20px 0;
+    border-top: 1px solid #efefef;
+    padding-top: 10px;
+}
+
+.comment-content {
+    display: table;
+    width: 100%;
+    border-bottom: 1px solid #efefef;
+    padding: 10px 0;
+}
+
+.sub-comment {
+    padding-top: 10px;
+}
+
+.sub-comment .comment-content {
+    border-bottom: 0;
+    padding-bottom: 0;
+}
+
+.comment-content .head-icon {
+    display: table-cell;
+    text-align: left;
+    vertical-align: top;
+    width: 80px;
+}
+
+.comment-content .text {
+    display: table-cell;
+    vertical-align: top;
+}
+
+.comment-content .text .user-info {
+    margin-bottom: 10px;
+}
+
+.comment-content .text .user-info a {
+    color: #f44e4e;
+}
+
+.comment-content .text .user-info .comment-time {
+    color: #707070;
+}
+
+.comment-content .text .comment {
+    line-height: 18px;
+}
+
+.comment-content .text .op {
+    padding: 10px 0;
+}
+
+
+.nav-search
+{
+    padding: 20px 0;
+    display: table;
+    width: 100%;
+    border-bottom: 1px solid #efefef;
+}
+
+.location
+{
+    margin-left: 20px;
+    font-size: 16px;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.location span
+{
+    margin: 0 8px;
+    color: #cbcbcb;
+}
+
+
+.search-box-group
+{
+    text-align: right;
+}
+
+.search-box-group .search-box
+{
+    position: relative;
+}
+
+.search-box-group .search-box .input-search
+{
+    width: 340px;
+    height: 34px;
+    padding: 0 90px 0 10px;
+    border: 1px solid #cbcbcb;
+    outline: none;
+}
+
+.search-box-group .search-box .input-search:focus
+{
+    border: 1px solid #f34253;
+}
+
+.search-box-group .search-box .btn-search
+{
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 80px;
+    height: 34px;
+    background-color: #f34253;
+    color: #ffffff;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+}

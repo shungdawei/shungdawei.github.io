@@ -1,0 +1,266 @@
+@CHARSET "UTF-8";
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 14px;
+    color: #222222;
+    min-width: 1230px;
+    background-color: #f2f2f2;
+}
+
+a {
+    text-decoration: none;
+    color: #010101;
+}
+
+a:visited {
+    color: #a4a4a4;
+}
+
+a:hover {
+    color: #f44e4e;
+}
+
+/**top-menu**/
+.top-menu {
+    background-color: #f44e4e;
+    height: 60px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 999;
+}
+
+.page-container {
+    width: 1230px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.top-menu .logo {
+    float: left;
+    height: 60px;
+    line-height: 60px;
+    font-size: 28px;
+    color: #fefefe;
+    cursor: default;
+}
+
+.top-menu .nav-channel {
+    margin-left: 20px;
+    float: left;
+}
+
+.top-menu .nav-channel li {
+    float: left;
+}
+
+.top-menu .nav-channel li a {
+    font-size: 18px;
+    color: #fefefe;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 60px;
+    line-height: 60px;
+    display: inline-block;
+}
+
+.top-menu .nav-channel li a:hover {
+    background-color: #d73c3c;
+}
+
+.content {
+    position: relative;
+    margin-top: 80px;
+}
+
+/**footer**/
+.footer {
+    margin: 30px 0;
+    padding-top: 20px;
+    border-top: 3px solid #efefef;
+}
+
+/**tag***/
+.tag-hot {
+    padding: 2px 5px;
+    border: 1px solid #ff0000;
+    border-radius: 4px;
+    margin-right: 8px;
+    font-size: 12px;
+    color: #ff0000;
+}
+
+.tag-prime {
+    padding: 2px 5px;
+    border: 1px solid #ff6c00;
+    border-radius: 4px;
+    margin-right: 8px;
+    font-size: 12px;
+    color: #ff6c00;
+}
+
+.tag-original {
+    padding: 2px 5px;
+    border: 1px solid #39a700;
+    border-radius: 4px;
+    margin-right: 8px;
+    font-size: 12px;
+}
+
+.tag-dot {
+    margin: 0px 8px;
+}
+
+.icon-weibo {
+    color: #fd310e;
+}
+
+.icon-qqzone {
+    color: #f3bd3a;
+}
+
+.icon-wechat {
+    color: #3fa20d;
+}
+
+.clear-fix:after {
+    content: "020";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.clear-fix {
+    /* 触发 hasLayout */
+    zoom: 1;
+}
+
+.ml10 {
+    margin-left: 10px;
+}
+
+.sub-title {
+    font-size: 20px;
+    font-weight: bold;
+    border-bottom: 3px solid #d8d8d8;
+    margin-bottom: 10px;
+}
+
+.sub-title span {
+    padding: 15px;
+    display: inline-block;
+    border-bottom: 3px solid #f44e4e;
+    position: relative;
+    top: 3px;
+}
+
+
+/**commend**/
+
+.commend .news-item {
+    display: table;
+    width: 100%;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #efefef;
+}
+
+.commend .body .news-item.single .img-box img {
+    width: 200px;
+    height: 125px;
+}
+
+.commend .body .news-item.single .img-box {
+    display: table-cell;
+    vertical-align: middle;
+    width: 200px;
+    height: 125px;
+}
+
+.commend .body .news-item.single .txt-area {
+    display: table-cell;
+    padding-left: 15px;
+    vertical-align: middle;
+}
+
+.commend .body .news-item.single .txt-area h3 {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    line-height: 25px;
+}
+
+.commend .body .news-item.single .txt-area .abstract {
+    color: #333435;
+    margin-bottom: 10px;
+    line-height: 18px;
+}
+
+/**multi**/
+.commend .body .news-item.multi {
+    display: block;
+}
+
+.commend .body .news-item.multi .img-box img {
+    width: 200px;
+    height: 125px;
+}
+
+.commend .body .news-item.multi .img-box {
+    float: left;
+    width: 200px;
+    height: 125px;
+}
+
+.commend .body .news-item.multi .txt-area {
+    vertical-align: middle;
+    padding-top: 10px;
+}
+
+.commend .body .news-item.multi h3 {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    line-height: 25px;
+}
+
+.commend .body .news-item.multi .txt-area .abstract {
+    color: #333435;
+    margin-bottom: 10px;
+    line-height: 18px;
+}
+
+/**thin**/
+.commend .body .news-item.thin {
+    display: block;
+}
+
+.commend .body .news-item.thin .txt-area {
+    vertical-align: middle;
+}
+
+.commend .body .news-item.thin h3 {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    line-height: 25px;
+}
+
+.commend .body .news-item.thin .txt-area .abstract {
+    color: #333435;
+    margin-bottom: 10px;
+    line-height: 18px;
+}
+
+/**load-more**/
+
+.commend .body .load-more {
+    padding: 20px 50px;
+    font-size: 22px;
+    text-align: center;
+}
