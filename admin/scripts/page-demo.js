@@ -17,6 +17,16 @@
         url: '/upload'
       } : false
     });
+
+    //$(".doc-placeholder").prop("outerHTML")
+
+    var docPlaceholderHTML = $("<div class=\"doc-placeholder\"></div>");
+    docPlaceholderHTML.append("<span class=\"left\"></span>");
+    docPlaceholderHTML.append("<span class=\"right\"></span>");
+    
+
+    $(".simditor-body").before(docPlaceholderHTML);
+
     $preview = $('#preview');
     if ($preview.length > 0) {
       return editor.on('valuechanged', function(e) {
@@ -26,6 +36,12 @@
 
       $("#getValue").on('click', function () {
           console.log(editor.getValue());
+      });
+
+      editor.on("valuechanged",function(e,src){
+          var value = editor.getValue();
+          var text = value.replace(/<\/?[^>]*>/g,'').replace(/[ | ]*\n/g,'\n').replace(/\n[\s| | ]*\r/g,'\n').replace(/&nbsp;/ig,'');
+          $(".words-count .num").text(text.length);
       });
   });
 

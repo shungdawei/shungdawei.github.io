@@ -34,6 +34,17 @@
             overflow: hidden;
             margin: 0px;
         }
+
+        .words-count {
+        	padding: 10px;
+        }
+
+        .words-count .num {
+        	margin-left: 5px;
+        }
+
+
+
     </style>
 </head>
 <body>
@@ -41,9 +52,12 @@
         <div>
             <button id="getValue">获取值</button>
         </div>
+
         <textarea id="txt-content" data-autosave="editor-content" autofocus required>
         </textarea>
-
+        <div>
+        	<p class="words-count">字数<span class="num">0</span></p>
+        </div>
     </div>
     <script type="text/javascript" src="../plugins/simditor/scripts/module.js"></script>
     <script type="text/javascript" src="../plugins/simditor/scripts/uploader.js"></script>
