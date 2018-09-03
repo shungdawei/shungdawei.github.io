@@ -2601,7 +2601,7 @@ Simditor = (function(superClass) {
     }
   };
 
-  Simditor.prototype._tpl = "<div class=\"simditor\">\n  <div class=\"simditor-wrapper\">\n    <div class=\"simditor-placeholder\"></div>\n    <div class=\"simditor-body\" contenteditable=\"true\">\n    </div>\n  </div>\n</div>";
+  Simditor.prototype._tpl = "<div class=\"simditor\">\n  <div class=\"simditor-wrapper\">\n    <div class=\"simditor-placeholder\"></div>\n	<div class=\"doc-placeholder\">\n		<span class=\"left\"></span>\n		<span class=\"right\"></span>\n	</div>    <div class=\"simditor-body\" contenteditable=\"true\">\n    </div>\n  </div>\n</div>";
 
   Simditor.prototype._render = function() {
     var key, ref, results, val;

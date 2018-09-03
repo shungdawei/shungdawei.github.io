@@ -20,12 +20,12 @@
 
     //$(".doc-placeholder").prop("outerHTML")
 
-    var docPlaceholderHTML = $("<div class=\"doc-placeholder\"></div>");
-    docPlaceholderHTML.append("<span class=\"left\"></span>");
-    docPlaceholderHTML.append("<span class=\"right\"></span>");
+    //var docPlaceholderHTML = $("<div class=\"doc-placeholder\"></div>");
+    //docPlaceholderHTML.append("<span class=\"left\"></span>");
+    //docPlaceholderHTML.append("<span class=\"right\"></span>");
     
 
-    $(".simditor-body").before(docPlaceholderHTML);
+    //$(".simditor-body").before(docPlaceholderHTML);
 
     $preview = $('#preview');
     if ($preview.length > 0) {
