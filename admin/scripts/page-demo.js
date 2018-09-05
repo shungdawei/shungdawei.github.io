@@ -36,6 +36,25 @@
           var text = value.replace(/<\/?[^>]*>/g,'').replace(/[ | ]*\n/g,'\n').replace(/\n[\s| | ]*\r/g,'\n').replace(/&nbsp;/ig,'');
           $(".words-count .num").text(text.length);
       });
+
+      editor.on("pasting",function(e,$content){
+          console.log('pasting');
+          //$content.append("pasting");
+          var imgs = $content.find('img');
+          var imgWrapper = '<div class="img-wrap" style="text-align: center;"></div>';
+          var imgCaption = '<div class="img-caption-wrap"><input placeholder="图片描述(最多50字)"/><p class="img-caption">图片描述</p></div>';
+          for(var i = 0;i<imgs.length;i++)
+          {
+            //$(imgs[i]).attr('data-width',$(imgs[i]).width());
+            //$(imgs[i]).attr('data-height',$(imgs[i]).height());
+            $(imgs[i]).wrap(imgWrapper);
+            $(imgs[i]).parent().append(imgCaption);
+          }
+      });
+
+      // editor.on('decorate',function(e,$el){
+      //   console.log('decorate');
+      // });
   });
 
 }).call(this);

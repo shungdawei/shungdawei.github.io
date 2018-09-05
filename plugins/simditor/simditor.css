@@ -614,4 +614,33 @@
 	max-height: 300px;
 }
 
+.simditor-body .img-wrap {
+  width: 400px;
+  margin: auto !important;
+}
+
+.simditor-body .img-wrap div,.simditor-body .img-wrap p {
+  margin: 5px 0;
+}
+
+.simditor-body .img-wrap p.img-caption {
+  color: #a5a5a5;
+  font-size: 12px;
+  display: none;
+}
+
+.simditor-body .img-wrap .img-caption-wrap input {
+  padding: 6px 7px;
+  max-width: 100%;
+  width: 100%;
+  text-align: center;
+  cursor: text;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #a5a5a5;
+  background-color: #fff;
+  background-image: none;
+  border: 0 solid #d9d9d9;
+}
+
 /*# sourceMappingURL=simditor.css.map */
