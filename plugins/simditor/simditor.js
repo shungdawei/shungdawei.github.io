@@ -1968,6 +1968,15 @@ Toolbar = (function(superClass) {
           _this.wrapper.css('position', '');
           toolbarHeight = _this.wrapper.outerHeight();
           _this.editor.placeholderEl.css('top', toolbarHeight);
+          // 重新计算 placeholder
+          if(_this.opts.docMode) {
+           var offset =  ($(".simditor").width()-$('.simditor-body').width())/2;
+            _this.editor.placeholderEl.css('padding', '0');
+            _this.editor.placeholderEl.css('top', toolbarHeight + 50);
+            _this.editor.placeholderEl.css('left', offset);
+          } else {
+            _this.editor.placeholderEl.css('padding', '22px 15px');
+          }
           return true;
         };
       })(this);
@@ -2034,6 +2043,15 @@ Toolbar = (function(superClass) {
     if (this.opts.toolbarHidden) {
       return this.wrapper.hide();
     }
+
+    if(this.opts.docMode) {
+     var offset =  ($(".simditor").width()-$('.simditor-body').width())/2;
+     var toolbarHeight = this.wrapper.outerHeight();
+     this.editor.placeholderEl.css('padding', '0 2px');
+     this.editor.placeholderEl.css('top', toolbarHeight + 50);
+     this.editor.placeholderEl.css('left', offset);
+   }
+
   };
 
   Toolbar.prototype.findButton = function(name) {
@@ -2637,11 +2655,13 @@ Simditor = (function(superClass) {
       this.el.css('min-width',wrapperWidth);
       this.body.css('width',this.docWidth);
       this.wrapper.find('.doc-placeholder').css('width',wrapperWidth);
-      this.wrapper.find('.simditor-placeholder').css('display','none !important;')
+      //this.wrapper.find('.simditor-placeholder').css('display','none !important;')
+
     } else {
       this.body.css('width','auto');
       this.body.css('padding','22px 15px');
       this.el.css('min-width','auto');
+      this.placeholderEl.css('padding', '22px 15px');
     }
 
     if (this.opts.params) {

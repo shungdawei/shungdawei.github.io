@@ -9,25 +9,16 @@
     }
     editor = new Simditor({
       textarea: $('#txt-content'),
-      placeholder: '这里输入文字...',
+      placeholder: 'Simditor魔改，这里输入文本...',
       toolbar: toolbar,
       pasteImage: true,
-      docWidth: 760,
-      docMode: true,
-      defaultImage: 'assets/images/image.png',
+      //docWidth: 800,
+      //docMode: false,
+      defaultImage: 'plugins/simditor/placeholder.png',
       upload: location.search === '?upload' ? {
         url: '/upload'
       } : false
     });
-
-    //$(".doc-placeholder").prop("outerHTML")
-
-    //var docPlaceholderHTML = $("<div class=\"doc-placeholder\"></div>");
-    //docPlaceholderHTML.append("<span class=\"left\"></span>");
-    //docPlaceholderHTML.append("<span class=\"right\"></span>");
-    
-
-    //$(".simditor-body").before(docPlaceholderHTML);
 
     $preview = $('#preview');
     if ($preview.length > 0) {
