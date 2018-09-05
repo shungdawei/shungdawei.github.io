@@ -9,9 +9,11 @@
     }
     editor = new Simditor({
       textarea: $('#txt-content'),
-      //placeholder: '这里输入文字...',
+      placeholder: '这里输入文字...',
       toolbar: toolbar,
       pasteImage: true,
+      docWidth: 760,
+      docMode: true,
       defaultImage: 'assets/images/image.png',
       upload: location.search === '?upload' ? {
         url: '/upload'

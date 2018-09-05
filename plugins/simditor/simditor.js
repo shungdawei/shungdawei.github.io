@@ -2548,7 +2548,9 @@ Simditor = (function(superClass) {
     defaultImage: 'images/image.png',
     params: {},
     upload: false,
-    indentWidth: 40
+    indentWidth: 40,
+    docMode: true,
+    docWidth: 800
   };
 
   Simditor.prototype._init = function() {
@@ -2559,6 +2561,9 @@ Simditor = (function(superClass) {
       throw new Error('simditor: param textarea is required.');
       return;
     }
+    this.docMode = this.opts.docMode;
+    this.docWidth = this.opts.docWidth;
+
     editor = this.textarea.data('simditor');
     if (editor != null) {
       editor.destroy();
@@ -2601,7 +2606,10 @@ Simditor = (function(superClass) {
     }
   };
 
-  Simditor.prototype._tpl = "<div class=\"simditor\">\n  <div class=\"simditor-wrapper\">\n    <div class=\"simditor-placeholder\"></div>\n	<div class=\"doc-placeholder\">\n		<span class=\"left\"></span>\n		<span class=\"right\"></span>\n	</div>    <div class=\"simditor-body\" contenteditable=\"true\">\n    </div>\n  </div>\n</div>";
+  //文档模式模板
+  Simditor.prototype._docTpl = "<div class=\"doc-placeholder\">\n   <span class=\"left\"></span>\n    <span class=\"right\"></span>\n </div>";
+
+  Simditor.prototype._tpl = "<div class=\"simditor\">\n  <div class=\"simditor-wrapper\">\n    <div class=\"simditor-placeholder\"></div>\n    <div class=\"simditor-body\" contenteditable=\"true\">\n    </div>\n  </div>\n</div>";
 
   Simditor.prototype._render = function() {
     var key, ref, results, val;
@@ -2621,6 +2629,21 @@ Simditor = (function(superClass) {
     if (this.util.os.mobile) {
       this.el.addClass('simditor-mobile');
     }
+
+    //启动文档模式
+    if(this.docMode) {
+      this.wrapper.find('.simditor-placeholder').before($(this._docTpl));
+      var wrapperWidth = this.docWidth + 40;
+      this.el.css('min-width',wrapperWidth);
+      this.body.css('width',this.docWidth);
+      this.wrapper.find('.doc-placeholder').css('width',wrapperWidth);
+      this.wrapper.find('.simditor-placeholder').css('display','none !important;')
+    } else {
+      this.body.css('width','auto');
+      this.body.css('padding','22px 15px');
+      this.el.css('min-width','auto');
+    }
+
     if (this.opts.params) {
       ref = this.opts.params;
       results = [];
